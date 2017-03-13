@@ -103,6 +103,22 @@ namespace PdfiumViewer
         }
 
         /// <summary>
+        /// Show the bookmarked Page and selects it in the bookmark tree
+        /// </summary>
+        /// <param name="bookmark"></param>
+        public void ShowPageOfBookmark(PdfBookmark bookmark)
+        {
+            if (_document != null && _document.Bookmarks.Contains(bookmark))
+            {
+                _renderer.Page = bookmark.PageIndex;
+                TreeNode node = _bookmarks.GetNodeByTag(bookmark);
+                _bookmarks.SelectedNode = node;
+                _bookmarks.Focus(); //to highlight the selected node
+            }
+        }
+
+
+        /// <summary>
         /// Initializes a new instance of the PdfViewer class.
         /// </summary>
         public PdfViewer()

@@ -291,5 +291,14 @@ namespace PdfiumViewer.Demo
             pdfViewer1.Document = document;
             pdfViewer1.Renderer.Page = page;
         }
+
+        private void _show2ndBookmark_Click(object sender, EventArgs e)
+        {
+            if (pdfViewer1.Document.Bookmarks.Count > 1)
+            {
+                PdfBookmark bm = pdfViewer1.Document.Bookmarks[1];
+                pdfViewer1.ShowPageOfBookmark(bm);
+            }
+        }
     }
 }
