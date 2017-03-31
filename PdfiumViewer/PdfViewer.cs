@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -108,12 +109,12 @@ namespace PdfiumViewer
         /// <param name="bookmark"></param>
         public void ShowPageOfBookmark(PdfBookmark bookmark)
         {
-            if (_document != null && _document.Bookmarks.Contains(bookmark))
+            if (_document != null && _document.Bookmarks.GetAll() .Contains(bookmark))
             {
                 _renderer.Page = bookmark.PageIndex;
                 TreeNode node = _bookmarks.GetNodeByTag(bookmark);
                 _bookmarks.SelectedNode = node;
-                _bookmarks.Focus(); //to highlight the selected node
+                node.EnsureVisible();
             }
         }
 
@@ -219,6 +220,26 @@ namespace PdfiumViewer
         private void _bookmarks_AfterSelect(object sender, TreeViewEventArgs e)
         {
             _renderer.Page = ((PdfBookmark)e.Node.Tag).PageIndex;
+        }
+
+        private void _bookmarks_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            TreeNodeStates state = e.State;
+            Font font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+            Color fore = e.Node.ForeColor;
+            if (fore == Color.Empty) fore = e.Node.TreeView.ForeColor;
+            if (e.Node == e.Node.TreeView.SelectedNode)
+            {
+                fore = SystemColors.HighlightText;
+                e.Graphics.FillRectangle(SystemBrushes.Highlight, e.Bounds);
+                ControlPaint.DrawFocusRectangle(e.Graphics, e.Bounds, fore, SystemColors.Highlight);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, fore, TextFormatFlags.GlyphOverhangPadding);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(SystemBrushes.Window, e.Bounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, fore, TextFormatFlags.GlyphOverhangPadding);
+            }
         }
     }
 }

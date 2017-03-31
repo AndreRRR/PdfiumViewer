@@ -51,6 +51,7 @@ namespace PdfiumViewer
             // _toolStrip
             // 
             this._toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this._toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._saveButton,
             this._printButton,
@@ -115,9 +116,11 @@ namespace PdfiumViewer
             // _bookmarks
             // 
             resources.ApplyResources(this._bookmarks, "_bookmarks");
+            this._bookmarks.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this._bookmarks.FullRowSelect = true;
             this._bookmarks.Name = "_bookmarks";
             this._bookmarks.ShowLines = false;
+            this._bookmarks.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this._bookmarks_DrawNode);
             this._bookmarks.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._bookmarks_AfterSelect);
             // 
             // _renderer

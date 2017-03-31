@@ -74,9 +74,10 @@ namespace PdfiumViewer.Demo
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this._showToolbar = new System.Windows.Forms.ToolStripButton();
             this._showBookmarks = new System.Windows.Forms.ToolStripButton();
-            this.pdfViewer1 = new PdfiumViewer.PdfViewer();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this._show2ndBookmark = new System.Windows.Forms.ToolStripButton();
+            this.pdfViewer1 = new PdfiumViewer.PdfViewer();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +91,7 @@ namespace PdfiumViewer.Demo
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1692, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(2080, 35);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -256,11 +257,12 @@ namespace PdfiumViewer.Demo
             this._showToolbar,
             this._showBookmarks,
             this.toolStripSeparator7,
+            this.toolStripButton5,
             this._show2ndBookmark});
             this.toolStrip1.Location = new System.Drawing.Point(0, 35);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1692, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(2080, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -430,15 +432,6 @@ namespace PdfiumViewer.Demo
             this._showBookmarks.Text = "Show Bookmarks";
             this._showBookmarks.Click += new System.EventHandler(this._hideBookmarks_Click);
             // 
-            // pdfViewer1
-            // 
-            this.pdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pdfViewer1.Location = new System.Drawing.Point(0, 67);
-            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.pdfViewer1.Name = "pdfViewer1";
-            this.pdfViewer1.Size = new System.Drawing.Size(1692, 848);
-            this.pdfViewer1.TabIndex = 0;
-            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -450,15 +443,34 @@ namespace PdfiumViewer.Demo
             this._show2ndBookmark.Image = ((System.Drawing.Image)(resources.GetObject("_show2ndBookmark.Image")));
             this._show2ndBookmark.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._show2ndBookmark.Name = "_show2ndBookmark";
-            this._show2ndBookmark.Size = new System.Drawing.Size(183, 29);
-            this._show2ndBookmark.Text = "Show 2nd bookmark";
+            this._show2ndBookmark.Size = new System.Drawing.Size(236, 29);
+            this._show2ndBookmark.Text = "Show 2nd bookmark (Root)";
             this._show2ndBookmark.Click += new System.EventHandler(this._show2ndBookmark_Click);
+            // 
+            // pdfViewer1
+            // 
+            this.pdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewer1.Location = new System.Drawing.Point(0, 67);
+            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.pdfViewer1.Name = "pdfViewer1";
+            this.pdfViewer1.Size = new System.Drawing.Size(2080, 848);
+            this.pdfViewer1.TabIndex = 0;
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(188, 29);
+            this.toolStripButton5.Text = "Show 2nd bookmark ";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1692, 915);
+            this.ClientSize = new System.Drawing.Size(2080, 915);
             this.Controls.Add(this.pdfViewer1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -522,6 +534,7 @@ namespace PdfiumViewer.Demo
         private System.Windows.Forms.ToolStripMenuItem rotate270ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton _show2ndBookmark;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
 

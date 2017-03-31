@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -296,7 +297,20 @@ namespace PdfiumViewer.Demo
         {
             if (pdfViewer1.Document.Bookmarks.Count > 1)
             {
-                PdfBookmark bm = pdfViewer1.Document.Bookmarks[1];
+                PdfBookmark bm = pdfViewer1.Document.Bookmarks[2];
+                pdfViewer1.ShowPageOfBookmark(bm);
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (pdfViewer1.Document.Bookmarks.Count > 1)
+            {
+                var lala =pdfViewer1.Document.Bookmarks.GetAll().GetEnumerator();
+                lala.MoveNext();
+                lala.MoveNext();
+
+                PdfBookmark bm = lala.Current;
                 pdfViewer1.ShowPageOfBookmark(bm);
             }
         }
