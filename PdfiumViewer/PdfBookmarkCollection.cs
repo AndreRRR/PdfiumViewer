@@ -26,7 +26,25 @@ namespace PdfiumViewer
         }
     }
 
-    public class PdfBookmarkCollection : Collection<PdfBookmark>
+    public class PdfBookmarkCollection : List<PdfBookmark>
     {
+
+        public PdfBookmarkCollection GetAll()
+        {
+            return GetAll(this);
+        }
+
+        private PdfBookmarkCollection GetAll(IEnumerable<PdfBookmark> bookmarks)
+        {
+            PdfBookmarkCollection result = new PdfBookmarkCollection();
+
+            foreach (var item in bookmarks)
+            {
+                result.Add(item);
+                result.AddRange(GetAll(item.Children));
+            }
+
+            return result;
+        }
     }
 }
