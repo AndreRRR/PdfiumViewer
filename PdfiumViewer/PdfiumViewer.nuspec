@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>PdfiumViewer</id>
+    <id>AndreRRR.PdfiumViewer</id>
     <version>$version$</version>
-    <title>PdfiumViewer</title>
-    <authors>Pieter van Ginkel</authors>
+    <title>PdfiumViewer by AndreRRR.</title>
+    <authors>AndreRRR</authors>
     <owners>Pieter van Ginkel</owners>
     <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>http://github.com/pvginkel/PdfiumViewer</projectUrl>
+    <projectUrl>http://github.com/AndreRRR/PdfiumViewer</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>PDF viewer based on the PDFium project.</description>
     <copyright>Pieter van Ginkel © 2012-2015</copyright>
@@ -16,6 +16,5 @@
   <files>
     <file src="..\Libraries\Pdfium\x86\pdfium.dll" target="content\x86" />
     <file src="..\Libraries\Pdfium\x64\pdfium.dll" target="content\x64" />
-    <file src="bin\Release\nl\*.dll" target="lib\net20\nl" />
   </files>
 </package>
